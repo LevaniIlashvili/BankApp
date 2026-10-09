@@ -41,10 +41,10 @@ class RegistrationSteps {
         let closeButton = XCUIApplication().buttons["Close"]
         if closeButton.waitForExistence(timeout: 2.0) {
             closeButton.tap()
-            passwordField.tap()
+            repeatPasswordField.tap()
         }
         
-        passwordField.typeText(pass)
+        repeatPasswordField.typeText(pass)
 
         return self
     }
