@@ -20,6 +20,14 @@ class RegistrationSteps {
         passwordField.tap()
         passwordField.typeText(pass)
 
+        let closeButton = XCUIApplication().buttons["Close"]
+        if closeButton.waitForExistence(timeout: 2.0) {
+            closeButton.tap()
+            passwordField.tap()
+        }
+        
+        passwordField.typeText(pass)
+
         return self
     }
     
@@ -30,6 +38,14 @@ class RegistrationSteps {
         repeatPasswordField.tap()
         repeatPasswordField.typeText(pass)
 
+        let closeButton = XCUIApplication().buttons["Close"]
+        if closeButton.waitForExistence(timeout: 2.0) {
+            closeButton.tap()
+            passwordField.tap()
+        }
+        
+        passwordField.typeText(pass)
+
         return self
     }
 
@@ -38,7 +54,7 @@ class RegistrationSteps {
         let submitBtn = registrationPage.submitButton
         XCTAssertTrue(submitBtn.waitForExistence(timeout: 5.0))
         submitBtn.tap()
-        
+
         return self
     }
 }
