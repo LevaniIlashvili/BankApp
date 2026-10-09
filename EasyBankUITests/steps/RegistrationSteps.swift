@@ -18,7 +18,6 @@ class RegistrationSteps {
         let passwordField = registrationPage.passwordInput
         XCTAssertTrue(passwordField.waitForExistence(timeout: 5.0))
         passwordField.tap()
-        passwordField.typeText(pass)
 
         let closeButton = XCUIApplication().buttons["Close"]
         if closeButton.waitForExistence(timeout: 2.0) {
@@ -26,6 +25,7 @@ class RegistrationSteps {
             passwordField.tap()
         }
         
+        passwordField.typeText(XCUIKeyboardKey.delete.rawValue)
         passwordField.typeText(pass)
 
         return self
@@ -36,7 +36,6 @@ class RegistrationSteps {
         let repeatPasswordField = registrationPage.repeatPasswordInput
         XCTAssertTrue(repeatPasswordField.waitForExistence(timeout: 5.0))
         repeatPasswordField.tap()
-        repeatPasswordField.typeText(pass)
 
         let closeButton = XCUIApplication().buttons["Close"]
         if closeButton.waitForExistence(timeout: 2.0) {
@@ -44,6 +43,7 @@ class RegistrationSteps {
             repeatPasswordField.tap()
         }
         
+        repeatPasswordField.typeText(XCUIKeyboardKey.delete.rawValue)
         repeatPasswordField.typeText(pass)
 
         return self
