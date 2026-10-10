@@ -7,5 +7,5 @@
 
 import XCTest
 
-class PageClasss: BaseClass {
+class EasyBankPage: BaseClass {
 }
