@@ -11,10 +11,10 @@ final class BankingFlowTests: BaseClass {
             .goToLogin()
 
         loginSteps
-            .fillEmail("invalid-email")
-            .fillPassword("Paroli123.")
+            .fillEmail(Constants.invalidEmail)
+            .fillPassword(Constants.standardPassword)
             .submitLogin()
-            .validateErrorMessageContains("badly formatted")
+            .validateErrorMessageContains(Constants.errorBadlyFormatted)
     }
 
     func testUnregisteredUserLogin() {
@@ -22,17 +22,17 @@ final class BankingFlowTests: BaseClass {
             .goToLogin()
         
         loginSteps
-            .fillEmail("missing-user@example.com")
-            .fillPassword("Paroli123.")
+            .fillEmail(Constants.unregisteredEmail)
+            .fillPassword(Constants.standardPassword)
             .submitLogin()
-            .validateErrorMessageContains("malformed or has expired") 
+            .validateErrorMessageContains(Constants.errorMalformedOrExpired) 
     }
 
     func testRegistrationAndReLogin() {
         let uniqueId = UUID().uuidString.prefix(8).lowercased()
-        let testEmail = "auto_\(uniqueId)@easybank.test"
+        let testEmail = "\(Constants.emailPrefix)\(uniqueId)\(Constants.emailDomain)"
         
-        let testPassword = "Paroli123."
+        let testPassword = Constants.standardPassword
         
         onboardingSteps.goToRegister()
         
